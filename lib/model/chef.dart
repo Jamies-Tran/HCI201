@@ -7,7 +7,7 @@ class Chef extends Account implements Verify /* Verify trong package input_conve
   String name;
   String phone;
 
-  Chef({this.email, this.name, this.phone}) : super();
+  Chef({this.email, this.name, this.phone}) : super(email: email, name: name, phone: phone);
 
   @override
   bool validData() {

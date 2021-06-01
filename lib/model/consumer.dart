@@ -7,7 +7,9 @@ class Consumer extends Account implements Verify /* Verify trong package input_c
   String name;
   String phone;
 
-  Consumer({this.email, this.name, this.phone}):super();
+  Consumer({this.email, this.name, this.phone}) : super(email: email , name: name, phone: phone);
+
+
 
 
   @override
@@ -28,4 +30,5 @@ class Consumer extends Account implements Verify /* Verify trong package input_c
     }
     return valid;
   }
+
 }

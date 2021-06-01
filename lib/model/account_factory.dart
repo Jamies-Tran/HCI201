@@ -6,7 +6,7 @@ class AccountFactory{
   String email;
   String name;
   String phone;
-  
+
   AccountFactory({this.email, this.name, this.phone});
 
   Account getAccount(bool isConsumer) {
