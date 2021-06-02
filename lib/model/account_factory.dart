@@ -4,16 +4,18 @@ import 'package:hci_201/model/consumer.dart';
 
 class AccountFactory{
   String email;
+  String password;
   String name;
   String phone;
+  String addr;
 
-  AccountFactory({this.email, this.name, this.phone});
+  AccountFactory({this.email, this.password ,this.name, this.phone, this.addr});
 
-  Account getAccount(bool isConsumer) {
-    if (isConsumer == true) {
-      return Consumer(email: email, name: name, phone: phone);
-    } else {
-      return Chef(email: email, name: name, phone: phone);
+  Account getAccount(String accountType) {
+    if (accountType == "CONSUMER") {
+      return Consumer(email: email, password: password ,name: name, phone: phone, addr: addr);
+    } else if(accountType == "CHEF"){
+      return Chef(email: email, password: password , name: name, phone: phone, addr: addr);
     }
   }
 }

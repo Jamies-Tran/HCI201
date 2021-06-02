@@ -75,5 +75,12 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: flower
+      fonts:
+        - asset: fonts/IndieFlower-Regular.ttf
+    - family: koho
+      fonts :
+        - asset: fonts/KoHo-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
