@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Visitor extends StatelessWidget {
+class Visitor extends StatefulWidget {
   const Visitor({Key key}) : super(key: key);
 
+  @override
+  _VisitorState createState() => _VisitorState();
+}
+
+class _VisitorState extends State<Visitor> {
+  bool isPressed = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +29,7 @@ class Visitor extends StatelessWidget {
               height: 50,
               child: RaisedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
+                  Navigator.pushNamed(context, '/login');
                 },
                 child: Text(
                   'LOG IN',
@@ -41,19 +47,23 @@ class Visitor extends StatelessWidget {
             ButtonTheme(
                 minWidth: 170,
                 height: 50,
+                buttonColor: Colors.red,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/reg');
+                    setState(() {
+                      isPressed = !isPressed;
+                    });
+                    Navigator.pushNamed(context, '/reg');
                   },
                   child: Text(
                     'Register',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2.0,
-                        color: Colors.red
+                        color: isPressed ? Colors.white : Colors.red
                     ),
                   ),
-                  color: Colors.white,
+                  color: isPressed ? Colors.red : Colors.white,
                 )
             )
           ],
