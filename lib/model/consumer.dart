@@ -1,4 +1,5 @@
 import 'package:hci_201/model/account.dart';
+import 'package:hci_201/model/get_enum.dart';
 
 class Consumer extends Account {
   String addr;
@@ -7,15 +8,19 @@ class Consumer extends Account {
   String name;
   String password;
   String phone;
+  Account_Type role;
   RegExp reg;
 
-  Consumer({this.email, this.password, this.name, this.phone, this.addr})
+  Consumer({this.email, this.password, this.name, this.phone, this.addr, this.role})
       : super(
             email: email,
             password: password,
             name: name,
             phone: phone,
-            addr: addr);
+            addr: addr,
+            role: role);
+
+
 
   @override
   bool validEmail() {
@@ -60,7 +65,7 @@ class Consumer extends Account {
 
   @override
   bool validPhone() {
-    reg = RegExp(r"^[0-9]$", multiLine: false, caseSensitive: false);
+    reg = RegExp(r"^([0-9]+)$", multiLine: false, caseSensitive: false);
     if (!reg.hasMatch(phone) ||
         phone.isEmpty ||
         phone == "" ||
@@ -82,4 +87,60 @@ class Consumer extends Account {
     }
     return true;
   }
+
+  @override
+  String getAddr() {
+    return this.addr;
+  }
+
+  @override
+  String getEmail() {
+    return this.email;
+  }
+
+  @override
+  String getName() {
+    return this.name;
+  }
+
+  @override
+  String getPassword() {
+    return this.password;
+  }
+
+  @override
+  String getPhone() {
+    return this.phone;
+  }
+
+  @override
+  Account_Type getRole() {
+    return this.role;
+  }
+
+  @override
+  void setAddr(String addr) {
+    this.addr = addr;
+  }
+
+  @override
+  void setEmail(String email) {
+    this.email = email;
+  }
+
+  @override
+  void setName(String name) {
+    this.name = name;
+  }
+
+  @override
+  void setPassword(String password) {
+    this.password = password;
+  }
+
+  @override
+  void setPhone(String phone) {
+    this.phone = phone;
+  }
+
 }

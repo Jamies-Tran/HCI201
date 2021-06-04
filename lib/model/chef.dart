@@ -1,4 +1,5 @@
 import 'package:hci_201/model/account.dart';
+import 'package:hci_201/model/get_enum.dart';
 
 class Chef extends Account {
 
@@ -8,10 +9,11 @@ class Chef extends Account {
   String name;
   String password;
   String phone;
+  Account_Type role;
   RegExp reg;
 
-  Chef({this.email, this.password, this.name, this.phone, this.addr})
-      : super(email: email, password: password, name: name, phone: phone, addr: addr);
+  Chef({this.email, this.password, this.name, this.phone, this.addr, this.role})
+      : super(email: email, password: password, name: name, phone: phone, addr: addr, role: role);
 
   @override
   bool validAddr() {
@@ -74,4 +76,61 @@ class Chef extends Account {
     }
     return true;
   }
+
+  @override
+  String getAddr() {
+    return this.addr;
+  }
+
+  @override
+  String getEmail() {
+    return this.email;
+  }
+
+  @override
+  String getName() {
+    return this.name;
+  }
+
+  @override
+  String getPassword() {
+    return this.password;
+  }
+
+  @override
+  String getPhone() {
+    return this.phone;
+  }
+
+  @override
+  Account_Type getRole() {
+    return this.role;
+  }
+
+  @override
+  void setAddr(String addr) {
+    this.addr = addr;
+  }
+
+  @override
+  void setEmail(String email) {
+    this.email = email;
+  }
+
+  @override
+  void setName(String name) {
+    this.name = name;
+  }
+
+  @override
+  void setPassword(String password) {
+    this.password = password;
+  }
+
+  @override
+  void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
 }

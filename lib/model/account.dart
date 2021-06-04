@@ -1,4 +1,6 @@
 // đây là abstract class của 2 class là chef và consumer
+import 'package:hci_201/model/get_enum.dart';
+
 abstract class Account {
   String email;
   String password;
@@ -6,26 +8,48 @@ abstract class Account {
   String phone;
   String addr;
   String errMsg;
+  Account_Type role;
 
-  Account({this.email, this.password, this.name, this.phone, this.addr});
+  Account({this.email, this.password, this.name, this.phone, this.addr, this.role});
 
-  bool validEmail() {
-    throw UnimplementedError();
-  }
+  // getter_setter_start
 
-  bool validPassword() {
-    throw UnimplementedError();
-  }
+  String getEmail();
 
-  bool validName() {
-    throw UnimplementedError();
-  }
+  void setEmail(String email);
 
-  bool validPhone() {
-    throw UnimplementedError();
-  }
+  String getPassword();
 
-  bool validAddr() {
-    throw UnimplementedError();
-  }
+  void setPassword(String password);
+
+  String getName();
+
+  void setName(String name);
+
+  String getPhone();
+
+  void setPhone(String phone);
+
+  String getAddr();
+
+  void setAddr(String addr);
+
+  Account_Type getRole();
+
+  // getter_setter_end
+
+  // validation_start
+
+  bool validEmail();
+
+  bool validPassword();
+
+  bool validName();
+
+  bool validPhone();
+
+  bool validAddr();
+
+  // validation_end
+
 }

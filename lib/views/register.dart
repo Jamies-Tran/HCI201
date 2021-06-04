@@ -19,7 +19,7 @@ class _RegisterState extends State<Register> {
   TextEditingController phoneController;
   TextEditingController addrController;
 
-  Account _acc;
+  Account _acc = Consumer(role: Account_Type.values[0]);
 
   String email;
   String password;
@@ -90,13 +90,14 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                     ),
+
                     TextFormField(
                       controller: emailController,
                       validator: (String value) {
                         setState(() {
                           email = value;
                         });
-                        _acc = Consumer(email: email);
+                        _acc.setEmail(email);
                         if(_acc.validEmail() == false) {
                           return _acc.errMsg;
                         }
@@ -124,17 +125,23 @@ class _RegisterState extends State<Register> {
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2 ,color: Colors.red[900]),
                             borderRadius: BorderRadius.all(Radius.circular(15))
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2, color: Colors.red[900]),
+                            borderRadius: BorderRadius.all(Radius.circular(15))
                           )
                       ),
                     ),
+
                     SizedBox(height: 20),
+
                     TextFormField(
                       controller: passwordController,
                       validator: (String value) {
                         setState(() {
                           password = value;
                         });
-                        _acc = Consumer(password: password);
+                        _acc.setPassword(password);
                         if(_acc.validPassword() == false) {
                           return _acc.errMsg;
                         }
@@ -159,20 +166,26 @@ class _RegisterState extends State<Register> {
                               borderRadius: BorderRadius.all(Radius.circular(
                                   15))
                           ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 2, color: Colors.red[900]),
-                          borderRadius: BorderRadius.circular(15)
-                        )
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2, color: Colors.red[900]),
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2, color: Colors.red[900]),
+                              borderRadius: BorderRadius.all(Radius.circular(15))
+                          )
                       ),
                     ),
+
                     SizedBox(height: 20),
+
                     TextFormField(
                       controller: nameController,
                       validator: (String value) {
                         setState(() {
                           name = value;
                         });
-                        _acc = Consumer(name: name);
+                        _acc.setName(name);
                         if(_acc.validName() == false) {
                           return _acc.errMsg;
                         }
@@ -200,17 +213,69 @@ class _RegisterState extends State<Register> {
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2, color: Colors.red[900]),
                             borderRadius: BorderRadius.circular(15)
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2, color: Colors.red[900]),
+                              borderRadius: BorderRadius.all(Radius.circular(15))
                           )
                       ),
                     ),
+
                     SizedBox(height: 20),
+
+                    TextFormField(
+                      controller: addrController,
+                      validator: (String value) {
+                        setState(() {
+                          addr = value;
+                        });
+                        _acc.setAddr(addr);
+                        if(_acc.validAddr() == false) {
+                          return _acc.errMsg;
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          labelText: "Address",
+                          labelStyle: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'koho',
+                              letterSpacing: 2.0
+                          ), 
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2, color: Colors
+                                  .red),
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  15))
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2, color: Colors
+                                  .black),
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  15))
+                          ),
+                          errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2, color: Colors
+                                  .red[900]),
+                              borderRadius: BorderRadius.all(Radius.circular(
+                                  15))
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 2, color: Colors.red[900]),
+                            borderRadius: BorderRadius.circular(15)
+                          )
+                      ),
+                    ),
+
+                    SizedBox(height: 20),
+
                     TextFormField(
                       controller: phoneController,
                       validator: (String value) {
                         setState(() {
                           phone = value;
                         });
-                        _acc = Consumer(phone: phone);
+                        _acc.setPhone(phone);
                         if(_acc.validPhone() == false) {
                           return _acc.errMsg;
                         }
@@ -238,50 +303,16 @@ class _RegisterState extends State<Register> {
                           errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 2, color: Colors.red[900]),
                               borderRadius: BorderRadius.circular(15)
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(width: 2, color: Colors.red[900]),
+                              borderRadius: BorderRadius.all(Radius.circular(15))
                           )
                       ),
                     ),
-                    SizedBox(height: 20),
-                    TextFormField(
-                      controller: addrController,
-                      validator: (String value) {
-                        setState(() {
-                          addr = value;
-                        });
-                        _acc = Consumer(addr: addr);
-                        if(_acc.validAddr() == false) {
-                          return _acc.errMsg;
-                        }
-                        return null;
-                      },
-                      decoration: InputDecoration(
-                          labelText: "Address",
-                          labelStyle: TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'koho',
-                              letterSpacing: 2.0
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 2, color: Colors
-                                  .red),
-                              borderRadius: BorderRadius.all(Radius.circular(
-                                  15))
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 2, color: Colors
-                                  .black),
-                              borderRadius: BorderRadius.all(Radius.circular(
-                                  15))
-                          ),
-                          errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(width: 2, color: Colors
-                                  .red[900]),
-                              borderRadius: BorderRadius.all(Radius.circular(
-                                  15))
-                          )
-                      ),
-                    ),
+
                     SizedBox(height: 100),
+
                     ButtonTheme(
                       minWidth: 400,
                       height: 50,
