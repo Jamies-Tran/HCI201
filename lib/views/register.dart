@@ -33,11 +33,11 @@ class _RegisterState extends State<Register> {
     bool isValidate = _key.currentState.validate();
     if (isValidate == true) {
       Navigator.pushNamed(context, "/loading", arguments: {
-        'email': _acc.email,
-        'name' : _acc.name,
-        'password': _acc.password,
-        'phone' : _acc.phone,
-        'addr' : _acc.addr
+        'email': _acc.getEmail(),
+        'name' : _acc.getName(),
+        'password': _acc.getPassword(),
+        'phone' : _acc.getPhone(),
+        'addr' : _acc.getAddr()
       });
     }
   }
