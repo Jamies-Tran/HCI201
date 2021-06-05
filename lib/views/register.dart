@@ -27,17 +27,19 @@ class _RegisterState extends State<Register> {
   String addr;
   String phone;
 
+
   GlobalKey<FormState> _key = GlobalKey();
 
   void _saveForm() {
     bool isValidate = _key.currentState.validate();
     if (isValidate == true) {
       Navigator.pushNamed(context, "/loading", arguments: {
-        'email': _acc.getEmail(),
-        'name' : _acc.getName(),
-        'password': _acc.getPassword(),
-        'phone' : _acc.getPhone(),
-        'addr' : _acc.getAddr()
+        // 'email': _acc.getEmail(),
+        // 'name' : _acc.getName(),
+        // 'password': _acc.getPassword(),
+        // 'phone' : _acc.getPhone(),
+        // 'addr' : _acc.getAddr()
+        'acc' : _acc
       });
     }
   }

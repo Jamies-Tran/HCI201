@@ -1,4 +1,5 @@
 // đây là abstract class của 2 class là chef và consumer
+import 'package:hci_201/model/category.dart';
 import 'package:hci_201/model/get_enum.dart';
 
 abstract class Account {
@@ -8,9 +9,10 @@ abstract class Account {
   String phone;
   String addr;
   String errMsg;
+  List<Category> cateList;
   Account_Type role;
 
-  Account({this.email, this.password, this.name, this.phone, this.addr, this.role});
+  Account({this.email, this.password, this.name, this.phone, this.addr, this.cateList,this.role});
 
   // getter_setter_start
 
@@ -33,6 +35,10 @@ abstract class Account {
   String getAddr();
 
   void setAddr(String addr);
+
+  List<Category> getCateList();
+
+  void setCateList(List<Category> cateList);
 
   Account_Type getRole();
 

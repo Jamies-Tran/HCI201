@@ -1,25 +1,40 @@
 import 'package:hci_201/model/account.dart';
+import 'package:hci_201/model/category.dart';
 import 'package:hci_201/model/get_enum.dart';
 
 class Chef extends Account {
-
   String addr;
   String email;
   String errMsg;
   String name;
   String password;
   String phone;
+  List<Category> cateList;
   Account_Type role;
   RegExp reg;
 
-  Chef({this.email, this.password, this.name, this.phone, this.addr, this.role})
-      : super(email: email, password: password, name: name, phone: phone, addr: addr, role: role);
+  Chef(
+      {this.email,
+      this.password,
+      this.name,
+      this.phone,
+      this.addr,
+      this.cateList,
+      this.role})
+      : super(
+            email: email,
+            password: password,
+            name: name,
+            phone: phone,
+            addr: addr,
+            cateList: cateList,
+            role: role);
 
   @override
   bool validAddr() {
     reg = RegExp(r"^([a-zA-Z]+)([0-9]+)$",
         multiLine: false, caseSensitive: false);
-    if(!reg.hasMatch(addr) || addr.isEmpty || addr == "") {
+    if (!reg.hasMatch(addr) || addr.isEmpty || addr == "") {
       errMsg = "Invalid address";
       return false;
     }
@@ -30,7 +45,7 @@ class Chef extends Account {
   bool validEmail() {
     reg = RegExp(r"^([a-zA-Z0-9]+)@([a-z]+)\.([a-z]+)$",
         multiLine: false, caseSensitive: false);
-    if(!reg.hasMatch(email) || email.isEmpty || email == "") {
+    if (!reg.hasMatch(email) || email.isEmpty || email == "") {
       errMsg = "Invalid email";
       return false;
     }
@@ -41,11 +56,11 @@ class Chef extends Account {
   bool validName() {
     reg = RegExp(r"^([a-zA-Z]+)([0-9]+)$",
         multiLine: false, caseSensitive: false);
-    if(!reg.hasMatch(name) || name.isEmpty || name == "") {
+    if (!reg.hasMatch(name) || name.isEmpty || name == "") {
       errMsg = "Invalid email(Ex: mealguru123@gmail.com).";
       return false;
     }
-    if(name.length < 5 || name.length > 10) {
+    if (name.length < 5 || name.length > 10) {
       errMsg = "Username length between 5 and 10.";
       return false;
     }
@@ -56,11 +71,11 @@ class Chef extends Account {
   bool validPassword() {
     reg = RegExp(r"^([a-zA-Z]+)([0-9]+)$",
         multiLine: false, caseSensitive: false);
-    if(!reg.hasMatch(password) || password.isEmpty || password == "") {
+    if (!reg.hasMatch(password) || password.isEmpty || password == "") {
       errMsg = "invalid password(Ex: mealguru123).";
       return false;
     }
-    if(password.length < 5 || password.length > 10) {
+    if (password.length < 5 || password.length > 10) {
       errMsg = "Password length between 5 and 10.";
       return false;
     }
@@ -70,7 +85,11 @@ class Chef extends Account {
   @override
   bool validPhone() {
     reg = RegExp(r"^[0-9]$", multiLine: false, caseSensitive: false);
-    if(!reg.hasMatch(phone) || phone.isEmpty || phone == "" || phone.length < 10 || phone.length > 10) {
+    if (!reg.hasMatch(phone) ||
+        phone.isEmpty ||
+        phone == "" ||
+        phone.length < 10 ||
+        phone.length > 10) {
       errMsg = "invalid phone number(Ex: 0981874736).";
       return false;
     }
@@ -132,5 +151,13 @@ class Chef extends Account {
     this.phone = phone;
   }
 
+  @override
+  List<Category> getCateList() {
+    return this.cateList;
+  }
 
+  @override
+  void setCateList(List<Category> cateList) {
+    this.cateList = cateList;
+  }
 }

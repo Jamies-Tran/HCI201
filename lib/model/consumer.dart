@@ -1,4 +1,5 @@
 import 'package:hci_201/model/account.dart';
+import 'package:hci_201/model/category.dart';
 import 'package:hci_201/model/get_enum.dart';
 
 class Consumer extends Account {
@@ -8,16 +9,18 @@ class Consumer extends Account {
   String name;
   String password;
   String phone;
+  List<Category> cateList;
   Account_Type role;
   RegExp reg;
 
-  Consumer({this.email, this.password, this.name, this.phone, this.addr, this.role})
+  Consumer({this.email, this.password, this.name, this.phone, this.addr, this.cateList, this.role})
       : super(
             email: email,
             password: password,
             name: name,
             phone: phone,
             addr: addr,
+            cateList: cateList,
             role: role);
 
 
@@ -141,6 +144,16 @@ class Consumer extends Account {
   @override
   void setPhone(String phone) {
     this.phone = phone;
+  }
+
+  @override
+  List<Category> getCateList() {
+    return this.cateList;
+  }
+
+  @override
+  void setCateList(List<Category> cateList) {
+    this.cateList = cateList;
   }
 
 }

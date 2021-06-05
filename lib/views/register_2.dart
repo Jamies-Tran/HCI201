@@ -11,6 +11,8 @@ class Register2 extends StatefulWidget {
 class _Register2State extends State<Register2> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Text('reg 2'),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/category.dart';
 
 class CategoryCard extends StatefulWidget {
@@ -16,10 +17,10 @@ class CategoryCard extends StatefulWidget {
 
 class _CategoryCardState extends State<CategoryCard> {
 
-  Color color;
-
   @override
   Widget build(BuildContext context) {
+    Map data = ModalRoute.of(context).settings.arguments;
+    Account _acc = data['acc'];
     return ListView.builder(
         itemCount: widget.cateList.length,
         itemBuilder: (context, index) {
@@ -30,7 +31,13 @@ class _CategoryCardState extends State<CategoryCard> {
               ),
               onTap: () {
                 widget.isSelected = !widget.isSelected;
-
+                setState(() {
+                  if(widget.isSelected == true) {
+                    _acc.getCateList().add(widget.cateList[index]);
+                  }else {
+                    _acc.getCateList().remove(widget.cateList[index]);
+                  }
+                });
               },
               selectedTileColor: Colors.redAccent,
             ),
