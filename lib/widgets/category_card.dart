@@ -29,7 +29,7 @@ class _CategoryCardState extends State<CategoryCard> {
       itemCount: widget.cateList.length,
       itemBuilder: (context, index) {
         return Card(
-          margin: EdgeInsets.fromLTRB(0, 20, 0, 15),
+          margin: EdgeInsets.fromLTRB(0, 20, 0, 20),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
               side: BorderSide(
@@ -60,13 +60,13 @@ class _CategoryCardState extends State<CategoryCard> {
                 widget.isSelected = !widget.isSelected;
               });
               widget.cateList[index].setSelectedChoice(widget.isSelected);
-              if (widget.cateList[index].getSelectedChoice() == true) {
-                _acc.getCateList().add(widget.cateList[index]);
-              } else {
-                if (_acc.getCateList().contains(widget.cateList[index])) {
-                  _acc.getCateList().remove(widget.cateList[index]);
-                }
-              }
+              // if (widget.cateList[index].getSelectedChoice() == true) {
+              //   _acc.getCateList().add(widget.cateList[index]);
+              // } else {
+              //   if (_acc.getCateList().contains(widget.cateList[index])) {
+              //     _acc.getCateList().remove(widget.cateList[index]);
+              //   }
+              _acc.addCategory(widget.cateList[index]);
             },
             title: Text(
               widget.cateList[index].getTitle(),

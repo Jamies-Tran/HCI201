@@ -31,7 +31,7 @@ class Consumer extends Account {
     reg = RegExp(r"^([a-zA-Z0-9]+)@([a-z]+)\.([a-z]+)$",
         multiLine: false, caseSensitive: false);
     if (!reg.hasMatch(email) || email.isEmpty || email == "") {
-      errMsg = "Invalid email";
+      errMsg = "Invalid email(Ex: mealguru@gmail.com)";
       return false;
     }
     return true;
@@ -42,7 +42,7 @@ class Consumer extends Account {
     reg = RegExp(r"^([a-zA-Z]+)([0-9]+)$",
         multiLine: false, caseSensitive: false);
     if (!reg.hasMatch(name) || name.isEmpty || name == "") {
-      errMsg = "Invalid email(Ex: mealguru123@gmail.com).";
+      errMsg = "Invalid username(Ex: jamies123).";
       return false;
     }
     if (name.length < 5 || name.length > 10) {
@@ -167,9 +167,13 @@ class Consumer extends Account {
   void addCategory(Category _cate) {
     if(_cate.getSelectedChoice() == true) {
       this.cateList.add(_cate);
+      print('has added ${_cate.getTitle()}');
+      print('${this.cateList.length}');
     }else {
-      if(this.cateList.isNotEmpty && this.cateList.contains(_cate)) {
+      if(this.cateList.contains(_cate)) {
         this.cateList.remove(_cate);
+        print('has remove ${_cate.getTitle()}');
+        print('${this.cateList.length}');
       }
     }
   }

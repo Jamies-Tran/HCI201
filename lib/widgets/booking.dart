@@ -13,6 +13,11 @@ class Booking extends StatefulWidget {
 class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(
+        child: Text("Booking view"),
+      ),
+      color: Colors.grey[400],
+    );
   }
 }

@@ -17,11 +17,11 @@ class _Register2State extends State<Register2> {
 
   List<Category> cateList = [
     Category(id: "cate01", title: "Breakfast and brunch", image: "assets/breakfast.jpg"),
-    Category(id: "cate02", title: "Easy weeknight meat", image: "assets/breakfast.jpg"),
-    Category(id: "cate03", title: "Make-ahead lunches", image: "assets/breakfast.jpg"),
-    Category(id: "cate04", title: "Healthy receipt", image: "assets/breakfast.jpg"),
-    Category(id: "cate05", title: "Deserts", image: "assets/breakfast.jpg"),
-    Category(id: "cate06", title: "Drinks", image: "assets/breakfast.jpg"),
+    Category(id: "cate02", title: "Easy weeknight meat", image: "assets/ezweek9.jpg"),
+    Category(id: "cate03", title: "Make-ahead lunches", image: "assets/lunches.jpg"),
+    Category(id: "cate04", title: "Healthy receipt", image: "assets/healthy.jpg"),
+    Category(id: "cate05", title: "Deserts", image: "assets/deserts.jpg"),
+    Category(id: "cate06", title: "Drinks", image: "assets/drinks.jpg"),
   ];
 
   @override
@@ -30,7 +30,7 @@ class _Register2State extends State<Register2> {
     Account _acc = data["acc"];
     String name = _acc.getName();
     return Scaffold(
-      appBar: MyAppBar(context, "Welcome, $name"),
+      appBar: MyAppBar(context, "Welcome"),
       body: Column(
         children: [
           Text(
@@ -41,14 +41,18 @@ class _Register2State extends State<Register2> {
                 letterSpacing: 2.0
             ),
           ),
-          Expanded(child: CategoryCard(cateList: cateList, isSelected: false)),
+          Expanded(
+              child: CategoryCard(cateList: cateList, isSelected: false),
+          ),
           ButtonTheme(
             minWidth: 400,
             height: 50,
             buttonColor: Colors.black,
             child: RaisedButton(
               onPressed: () {
-
+                Navigator.pushReplacementNamed(context, '/main', arguments: {
+                  'acc' : _acc
+                });
               },
               child: Text(
                 "Complete",
@@ -61,14 +65,10 @@ class _Register2State extends State<Register2> {
               ),
               color: Colors.red,
             ),
-          )
+          ),
+          SizedBox(height: 30,)
         ],
       ),
     );
-      // Container(
-      //   padding: EdgeInsets.fromLTRB(0, 50, 0, 50),
-      //   child: CategoryCard(cateList: cateList, isSelected: false),
-      // ),
-    //);
   }
 }
