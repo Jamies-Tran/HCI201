@@ -30,7 +30,6 @@ class _CategoryCardState extends State<CategoryCard> {
       itemBuilder: (context, index) {
         return Card(
           margin: EdgeInsets.fromLTRB(0, 20, 0, 15),
-
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
               side: BorderSide(

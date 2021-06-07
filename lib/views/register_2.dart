@@ -1,6 +1,7 @@
 // ToDo: reg 2
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/category.dart';
 import 'package:hci_201/widgets/appbar.dart';
 import 'package:hci_201/widgets/category_card.dart';
@@ -25,12 +26,49 @@ class _Register2State extends State<Register2> {
 
   @override
   Widget build(BuildContext context) {
+    Map data = ModalRoute.of(context).settings.arguments;
+    Account _acc = data["acc"];
+    String name = _acc.getName();
     return Scaffold(
-      appBar: MyAppBar(context, "Favorite"),
-      body: Container(
-        padding: EdgeInsets.fromLTRB(0, 50, 0, 50),
-        child: CategoryCard(cateList: cateList, isSelected: false),
-      )
+      appBar: MyAppBar(context, "Welcome, $name"),
+      body: Column(
+        children: [
+          Text(
+            "choose your favourite food's categories.",
+            style: TextStyle(
+                fontSize: 25,
+                fontFamily: 'koho',
+                letterSpacing: 2.0
+            ),
+          ),
+          Expanded(child: CategoryCard(cateList: cateList, isSelected: false)),
+          ButtonTheme(
+            minWidth: 400,
+            height: 50,
+            buttonColor: Colors.black,
+            child: RaisedButton(
+              onPressed: () {
+
+              },
+              child: Text(
+                "Complete",
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'koho',
+                    letterSpacing: 2.0,
+                    color: Colors.white
+                ),
+              ),
+              color: Colors.red,
+            ),
+          )
+        ],
+      ),
     );
+      // Container(
+      //   padding: EdgeInsets.fromLTRB(0, 50, 0, 50),
+      //   child: CategoryCard(cateList: cateList, isSelected: false),
+      // ),
+    //);
   }
 }

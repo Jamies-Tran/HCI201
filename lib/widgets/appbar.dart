@@ -6,7 +6,7 @@ Widget MyAppBar(BuildContext context, String title) {
     title: Text(
       title,
       style: TextStyle(
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: FontWeight.bold,
         fontFamily: 'flower',
         letterSpacing: 2.0
