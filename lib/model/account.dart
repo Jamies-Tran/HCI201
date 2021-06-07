@@ -12,7 +12,7 @@ abstract class Account {
   List<Category> cateList;
   Account_Type role;
 
-  Account({this.email, this.password, this.name, this.phone, this.addr, this.cateList,this.role});
+  Account({this.email, this.password, this.name, this.phone, this.addr, this.role});
 
   // getter_setter_start
 
@@ -57,5 +57,7 @@ abstract class Account {
   bool validAddr();
 
   // validation_end
+
+  void addCategory(Category _cate);
 
 }

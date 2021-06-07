@@ -9,21 +9,22 @@ class Consumer extends Account {
   String name;
   String password;
   String phone;
-  List<Category> cateList;
+  List<Category> cateList = [];
   Account_Type role;
   RegExp reg;
 
-  Consumer({this.email, this.password, this.name, this.phone, this.addr, this.cateList, this.role})
+  Consumer({this.email, this.password, this.name, this.phone, this.addr, this.role})
       : super(
             email: email,
             password: password,
             name: name,
             phone: phone,
             addr: addr,
-            cateList: cateList,
             role: role);
 
 
+
+  // validate-start
 
   @override
   bool validEmail() {
@@ -91,6 +92,10 @@ class Consumer extends Account {
     return true;
   }
 
+  // validate-end
+
+  //getter-setter-start
+
   @override
   String getAddr() {
     return this.addr;
@@ -154,6 +159,19 @@ class Consumer extends Account {
   @override
   void setCateList(List<Category> cateList) {
     this.cateList = cateList;
+  }
+
+  //getter-setter-end
+
+  @override
+  void addCategory(Category _cate) {
+    if(_cate.getSelectedChoice() == true) {
+      this.cateList.add(_cate);
+    }else {
+      if(this.cateList.isNotEmpty && this.cateList.contains(_cate)) {
+        this.cateList.remove(_cate);
+      }
+    }
   }
 
 }

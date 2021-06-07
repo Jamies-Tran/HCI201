@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hci_201/model/food.dart';
 
 class Category {
@@ -5,6 +6,7 @@ class Category {
   String title;
   String image;
   List<Food> foodList;
+  bool isSelected = false;
 
   Category({this.id, this.title, this.image, this.foodList});
 
@@ -38,6 +40,22 @@ class Category {
 
   void setImage(String image) {
     this.image = image;
+  }
+
+  bool getSelectedChoice() {
+    return this.isSelected;
+  }
+
+  void setSelectedChoice(bool isSelected) {
+    this.isSelected = isSelected;
+  }
+
+  Color setColor() {
+    if(this.isSelected == true) {
+      return Colors.red;
+    }else {
+      return Colors.white;
+    }
   }
 
 }

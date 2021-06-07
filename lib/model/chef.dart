@@ -9,7 +9,7 @@ class Chef extends Account {
   String name;
   String password;
   String phone;
-  List<Category> cateList;
+  List<Category> cateList = [];
   Account_Type role;
   RegExp reg;
 
@@ -19,7 +19,6 @@ class Chef extends Account {
       this.name,
       this.phone,
       this.addr,
-      this.cateList,
       this.role})
       : super(
             email: email,
@@ -27,7 +26,6 @@ class Chef extends Account {
             name: name,
             phone: phone,
             addr: addr,
-            cateList: cateList,
             role: role);
 
   @override
@@ -159,5 +157,10 @@ class Chef extends Account {
   @override
   void setCateList(List<Category> cateList) {
     this.cateList = cateList;
+  }
+
+  @override
+  void addCategory(Category _cate) {
+    // TODO: implement addCategory
   }
 }
