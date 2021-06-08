@@ -4,7 +4,7 @@ Widget myUserAppBar(String title) {
   return AppBar(
     leading: CircleAvatar(
       backgroundImage: AssetImage("assets/default_avatar.jpg"),
-      radius: 10,
+      radius: 5,
     ),
     title: Text(
       '$title',
@@ -13,9 +13,9 @@ Widget myUserAppBar(String title) {
           fontWeight: FontWeight.bold,
           fontFamily: 'flower',
           letterSpacing: 2.0,
-          color: Colors.red
+          color: Colors.white
       ),
     ),
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.redAccent,
   );
 }

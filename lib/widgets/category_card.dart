@@ -20,10 +20,7 @@ class _CategoryCardState extends State<CategoryCard> {
 
   @override
   Widget build(BuildContext context) {
-    Map data = ModalRoute
-        .of(context)
-        .settings
-        .arguments;
+    Map data = ModalRoute.of(context).settings.arguments;
     Account _acc = data['acc'];
     return ListView.builder(
       itemCount: widget.cateList.length,
@@ -42,10 +39,6 @@ class _CategoryCardState extends State<CategoryCard> {
                 borderRadius: BorderRadius.circular(15.0)
             ),
             leading: Container(
-              // child: CircleAvatar(
-              //   backgroundImage: AssetImage("${widget.cateList[index].getImage()}"),
-              //   radius: 50,
-              // ),
               width: 100,
               height: 100,
               decoration: BoxDecoration(
@@ -60,12 +53,6 @@ class _CategoryCardState extends State<CategoryCard> {
                 widget.isSelected = !widget.isSelected;
               });
               widget.cateList[index].setSelectedChoice(widget.isSelected);
-              // if (widget.cateList[index].getSelectedChoice() == true) {
-              //   _acc.getCateList().add(widget.cateList[index]);
-              // } else {
-              //   if (_acc.getCateList().contains(widget.cateList[index])) {
-              //     _acc.getCateList().remove(widget.cateList[index]);
-              //   }
               _acc.addCategory(widget.cateList[index]);
             },
             title: Text(

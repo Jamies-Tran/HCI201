@@ -1,5 +1,6 @@
 import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/category.dart';
+import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/get_enum.dart';
 
 class Chef extends Account {
@@ -9,25 +10,17 @@ class Chef extends Account {
   String name;
   String password;
   String phone;
+  String avatar;
   List<Category> cateList = [];
   Account_Type role;
+  List<ChefFood> chefFood = [];
+  double star;
   RegExp reg;
 
-  Chef(
-      {this.email,
-      this.password,
-      this.name,
-      this.phone,
-      this.addr,
-      this.role})
-      : super(
-            email: email,
-            password: password,
-            name: name,
-            phone: phone,
-            addr: addr,
-            role: role);
+  Chef({this.email, this.password, this.name, this.phone, this.addr, this.star = 0, this.avatar, this.role})
+      : super(email: email, password: password, name: name, phone: phone, addr: addr, role: role);
 
+  // valid-data-start
   @override
   bool validAddr() {
     reg = RegExp(r"^([a-zA-Z]+)([0-9]+)$",
@@ -94,6 +87,10 @@ class Chef extends Account {
     return true;
   }
 
+  // valid-data-end
+
+
+  // getter-setter-start
   @override
   String getAddr() {
     return this.addr;
@@ -158,6 +155,32 @@ class Chef extends Account {
   void setCateList(List<Category> cateList) {
     this.cateList = cateList;
   }
+
+  List<ChefFood> getChefFood() {
+    return this.chefFood;
+  }
+
+  void setChefFood(List<ChefFood> chefFood) {
+    this.chefFood = chefFood;
+  }
+
+  double getStar() {
+    return this.star;
+  }
+
+  void setStar(double star) {
+    this.star = star;
+  }
+
+  String getAvatar() {
+    return this.avatar;
+  }
+
+  void setAvatar(String avatar) {
+    this.avatar = avatar;
+  }
+
+  // getter-setter-end
 
   @override
   void addCategory(Category _cate) {

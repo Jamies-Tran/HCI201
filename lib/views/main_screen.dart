@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "home",
+              label: "explore",
               backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
