@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget myUserAppBar(String title) {
+Widget myUserAppBar(String title, BuildContext context) {
   return AppBar(
+    leadingWidth: 70,
     leading: CircleAvatar(
       backgroundImage: AssetImage("assets/default_avatar.jpg"),
       radius: 5,
@@ -17,5 +18,12 @@ Widget myUserAppBar(String title) {
       ),
     ),
     backgroundColor: Colors.redAccent,
+    actions: [
+      IconButton(
+          icon: Icon(Icons.search),
+          onPressed: () {
+
+          })
+    ],
   );
 }

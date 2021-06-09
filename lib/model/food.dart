@@ -1,12 +1,14 @@
+import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/chef_food.dart';
 
 class Food {
   String id;
   String name;
+  String avatar;
   List<String> receiptList = [];
   List<ChefFood> chefFood = [];
 
-  Food({this.id, this.name, this.receiptList});
+  Food({this.id, this.name, this.receiptList, this.avatar});
 
   // getter-setter-start
 
@@ -35,11 +37,21 @@ class Food {
   }
 
   List<ChefFood> getChefFood() {
+    this.chefFood.sort((a,b) => a.getChef().getStar().compareTo(b.getChef().getStar()));
+    this.chefFood.reversed;
     return this.chefFood;
   }
 
   void setChefFood(List<ChefFood> chefFood) {
     this.chefFood = chefFood;
+  }
+
+  String getAvatar() {
+    return this.avatar;
+  }
+
+  void setAvatar(String avatar) {
+    this.avatar = avatar;
   }
 
   // getter-setter-end

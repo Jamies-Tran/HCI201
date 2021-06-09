@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/category.dart';
+import 'package:hci_201/model/consumer.dart';
 import 'package:hci_201/widgets/appbar.dart';
 import 'package:hci_201/widgets/category_card.dart';
 
@@ -24,11 +25,12 @@ class _Register2State extends State<Register2> {
     Category(id: "cate06", title: "Drinks", image: "assets/drinks.jpg"),
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
     Map data = ModalRoute.of(context).settings.arguments;
     Account _acc = data["acc"];
-    String name = _acc.getName();
     return Scaffold(
       appBar: MyAppBar(context, "Welcome"),
       body: Column(

@@ -8,4 +8,16 @@ class ChefFood {
   // constructor
   ChefFood({this.chef, this.food});
 
+  // getter-setter-start
+
+  Chef getChef() {
+    return this.chef;
+  }
+
+  Food getFood() {
+    return this.food;
+  }
+
+  // getter-setter-end
+
 }

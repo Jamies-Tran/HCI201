@@ -27,6 +27,7 @@ class _RegisterState extends State<Register> {
   String name;
   String addr;
   String phone;
+  int flag = 1;
 
 
   GlobalKey<FormState> _key = GlobalKey();
@@ -35,7 +36,8 @@ class _RegisterState extends State<Register> {
     bool isValidate = _key.currentState.validate();
     if (isValidate == true) {
       Navigator.pushNamed(context, "/loading", arguments: {
-        'acc' : _acc
+        'acc' : _acc,
+        'flag' : flag
       });
     }
   }

@@ -15,9 +15,10 @@ class Chef extends Account {
   Account_Type role;
   List<ChefFood> chefFood = [];
   double star;
+  int price;
   RegExp reg;
 
-  Chef({this.email, this.password, this.name, this.phone, this.addr, this.star = 0, this.avatar, this.role})
+  Chef({this.email, this.password, this.name, this.phone, this.addr, this.star = 0, this.avatar, this.role, this.price})
       : super(email: email, password: password, name: name, phone: phone, addr: addr, role: role);
 
   // valid-data-start
@@ -180,10 +181,21 @@ class Chef extends Account {
     this.avatar = avatar;
   }
 
+  int getPrice() {
+    return this.price;
+  }
+
+  void setPrice(int price) {
+    this.price = price;
+  }
+
   // getter-setter-end
 
   @override
   void addCategory(Category _cate) {
     // TODO: implement addCategory
   }
+
+
+
 }

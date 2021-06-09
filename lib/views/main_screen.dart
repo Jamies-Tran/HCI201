@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_201/model/account.dart';
 import 'package:hci_201/widgets/account_profile.dart';
 import 'package:hci_201/widgets/booking.dart';
+import 'package:hci_201/widgets/chat.dart';
 import 'package:hci_201/widgets/explore.dart';
 import 'package:hci_201/widgets/search.dart';
 import 'package:hci_201/widgets/user_appar.dart';
@@ -20,6 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     Explore(),
     Search(),
     Booking(),
+    Chat(),
     Profile()
   ];
 
@@ -28,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
     Map data = ModalRoute.of(context).settings.arguments;
     Account _acc = data['acc'];
     return Scaffold(
-      appBar: myUserAppBar("${_acc.getName()}"),
+      appBar: myUserAppBar("${_acc.getName()}", context),
       body: widList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -55,6 +57,11 @@ class _MainScreenState extends State<MainScreen> {
               ),
               label: "story",
               backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble),
+            label: "Chat",
+            backgroundColor: Colors.red
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.info_rounded),
