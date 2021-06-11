@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/category.dart';
+import 'package:hci_201/model/consumer.dart';
 
 class CategoryCard extends StatefulWidget {
 
@@ -21,7 +22,7 @@ class _CategoryCardState extends State<CategoryCard> {
   @override
   Widget build(BuildContext context) {
     Map data = ModalRoute.of(context).settings.arguments;
-    Account _acc = data['acc'];
+    Consumer _acc = data['acc'];
     return ListView.builder(
       itemCount: widget.cateList.length,
       itemBuilder: (context, index) {

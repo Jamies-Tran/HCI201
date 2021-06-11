@@ -30,7 +30,7 @@ class _MainScreenState extends State<MainScreen> {
     Map data = ModalRoute.of(context).settings.arguments;
     Account _acc = data['acc'];
     return Scaffold(
-      appBar: myUserAppBar("${_acc.getName()}", context),
+      appBar: myUserAppBar("${_acc.name}", context),
       body: widList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

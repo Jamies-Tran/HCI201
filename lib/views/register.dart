@@ -20,7 +20,7 @@ class _RegisterState extends State<Register> {
   TextEditingController phoneController;
   TextEditingController addrController;
 
-  Account _acc = Consumer(role: Account_Type.values[0]);
+  Consumer _acc = Consumer(role: Account_Type.values[0]);
 
   String email;
   String password;
@@ -97,7 +97,7 @@ class _RegisterState extends State<Register> {
                         setState(() {
                           email = value;
                         });
-                        _acc.setEmail(email);
+                        _acc.email = email;
                         if(_acc.validEmail() == false) {
                           return _acc.errMsg;
                         }
@@ -141,7 +141,7 @@ class _RegisterState extends State<Register> {
                         setState(() {
                           password = value;
                         });
-                        _acc.setPassword(password);
+                        _acc.password = password;
                         if(_acc.validPassword() == false) {
                           return _acc.errMsg;
                         }
@@ -185,7 +185,7 @@ class _RegisterState extends State<Register> {
                         setState(() {
                           name = value;
                         });
-                        _acc.setName(name);
+                        _acc.name = name;
                         if(_acc.validName() == false) {
                           return _acc.errMsg;
                         }
@@ -229,7 +229,7 @@ class _RegisterState extends State<Register> {
                         setState(() {
                           addr = value;
                         });
-                        _acc.setAddr(addr);
+                        _acc.addr = addr;
                         if(_acc.validAddr() == false) {
                           return _acc.errMsg;
                         }
@@ -275,7 +275,7 @@ class _RegisterState extends State<Register> {
                         setState(() {
                           phone = value;
                         });
-                        _acc.setPhone(phone);
+                        _acc.phone = phone;
                         if(_acc.validPhone() == false) {
                           return _acc.errMsg;
                         }

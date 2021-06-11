@@ -1,23 +1,24 @@
 import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/food.dart';
+import 'package:hci_201/service/iservice.dart';
+import 'package:hci_201/service/serviceimpl.dart';
+
 
 class ChefFood {
-  Chef chef;
-  Food food;
+
+  String email;
+  int id;
+  IService service = ServiceImpl();
 
   // constructor
-  ChefFood({this.chef, this.food});
-
-  // getter-setter-start
-
-  Chef getChef() {
-    return this.chef;
-  }
+  ChefFood({this.email, this.id});
 
   Food getFood() {
-    return this.food;
+    return service.getFoodByID(this.id);
   }
 
-  // getter-setter-end
+  Chef getChef() {
+    return service.getChefByEmail(this.email);
+  }
 
 }

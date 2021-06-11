@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hci_201/model/chef.dart';
@@ -19,27 +20,37 @@ class _ChefCardState extends State<ChefCard> {
         scrollDirection: Axis.horizontal,
         itemCount: widget.chefList.length,
         itemBuilder: (context, index) {
-          return Row(
+          return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.25,
+                margin: EdgeInsets.fromLTRB(14, 20, 10, 0),
+                // cac widget duoc tao boi ListView.builder se phai duoc dat trong container de
+                // tranh truong hop height cua widget bang infinite
+                width: MediaQuery.of(context).size.width * 0.98,
+                // day la height container chua image avatar
+                height: MediaQuery.of(context).size.height * 0.3,
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     image: DecorationImage(
-                        image: AssetImage("${widget.chefList[index].getAvatar()}"),
+                        image: AssetImage("${widget.chefList[index].avatar}"),
                         fit: BoxFit.cover
                     )
                 ),
               ),
+              SizedBox(width: 30),
               Container(
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 20),
+                // cac widget duoc tao boi ListView.builder se phai duoc dat trong container de
+                // tranh truong hop height cua widget bang infinite
                 width: MediaQuery.of(context).size.width * 1.0,
-                height: MediaQuery.of(context).size.height * 0.25,
+                // day la height container chua cac listile
+                height: MediaQuery.of(context).size.height * 0.3,
                 child: Card(
                   child: ListTile(
                     title: Text(
-                      '${widget.chefList[index].getName()}',
+                      '${widget.chefList[index].name}',
                       style: TextStyle(
                           fontSize: 35,
                           fontFamily: 'flower',
@@ -48,14 +59,16 @@ class _ChefCardState extends State<ChefCard> {
                       ),
                     ),
                     subtitle: Text(
-                      '${widget.chefList[index].getEmail()} \n ${widget.chefList[index].getStar()} - Stars \n ${widget.chefList[index].getAddr()} - 4.3km \n'
-                          '${widget.chefList[index].getPrice()} VND/hours',
+                      '${widget.chefList[index].email} \n ${widget.chefList[index].price} VND/hours , ${widget.chefList[index].star} star \n ${widget.chefList[index].addr} - 4.3km \n',
                       style: TextStyle(
                           fontSize: 25,
                           fontFamily: 'koho',
                           letterSpacing: 1.0
                       ),
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, "/chef_profile");
+                    },
                   ),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/food.dart';
 
@@ -20,26 +21,29 @@ class _FoodCardState extends State<FoodCard> {
         scrollDirection: Axis.horizontal,
         itemCount: widget.foodList.length,
         itemBuilder: (context, index) {
-          return Row(
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.25,
+                margin: EdgeInsets.fromLTRB(14, 20, 10, 0),
+                width: MediaQuery.of(context).size.width * 0.98,
+                height: MediaQuery.of(context).size.height * 0.3,
                 decoration: BoxDecoration(
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
-                    image: AssetImage("${widget.foodList[index].getAvatar()}"),
+                    image: AssetImage("${widget.foodList[index].avatar}"),
                     fit: BoxFit.cover
                   )
                 ),
               ),
               Container(
-                width: MediaQuery.of(context).size.width * 0.90,
-                height: MediaQuery.of(context).size.height * 0.25,
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 20),
+                width: MediaQuery.of(context).size.width * 1.0,
+                height: MediaQuery.of(context).size.height * 0.3,
                 child: Card(
                   child: ListTile(
                     title: Text(
-                      '${widget.foodList[index].getName()}',
+                      '${widget.foodList[index].name}',
                       style: TextStyle(
                         fontSize: 35,
                         fontWeight: FontWeight.bold,
@@ -48,9 +52,9 @@ class _FoodCardState extends State<FoodCard> {
                       ),
                     ),
                     subtitle: Text(
-                      '${widget.foodList[index].getName()} \n '
-                          '${widget.chefList[index].getName()} - '
-                          '${widget.chefList[index].getStar()}',
+                      '${widget.foodList[index].name} \n '
+                          '${widget.chefList[index].name} - '
+                          '${widget.chefList[index].star}',
                       style: TextStyle(
                           fontSize: 25,
                           fontFamily: 'koho',

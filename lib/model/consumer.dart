@@ -9,22 +9,18 @@ class Consumer extends Account {
   String name;
   String password;
   String phone;
-  List<Category> cateList = [];
   Account_Type role;
+  String avatar;
+  List<Category> cateList = [];
   RegExp reg;
 
+
   Consumer({this.email, this.password, this.name, this.phone, this.addr, this.role})
-      : super(
-            email: email,
-            password: password,
-            name: name,
-            phone: phone,
-            addr: addr,
-            role: role);
+      : super(email: email, password: password, name: name, phone: phone, addr: addr, role: role);
 
 
 
-  // validate-start
+  // implement super class method (valid data) - start
 
   @override
   bool validEmail() {
@@ -92,78 +88,8 @@ class Consumer extends Account {
     return true;
   }
 
-  // validate-end
+  // implement super class method (valid data) - end
 
-  //getter-setter-start
-
-  @override
-  String getAddr() {
-    return this.addr;
-  }
-
-  @override
-  String getEmail() {
-    return this.email;
-  }
-
-  @override
-  String getName() {
-    return this.name;
-  }
-
-  @override
-  String getPassword() {
-    return this.password;
-  }
-
-  @override
-  String getPhone() {
-    return this.phone;
-  }
-
-  @override
-  Account_Type getRole() {
-    return this.role;
-  }
-
-  @override
-  void setAddr(String addr) {
-    this.addr = addr;
-  }
-
-  @override
-  void setEmail(String email) {
-    this.email = email;
-  }
-
-  @override
-  void setName(String name) {
-    this.name = name;
-  }
-
-  @override
-  void setPassword(String password) {
-    this.password = password;
-  }
-
-  @override
-  void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  @override
-  List<Category> getCateList() {
-    return this.cateList;
-  }
-
-  @override
-  void setCateList(List<Category> cateList) {
-    this.cateList = cateList;
-  }
-
-  //getter-setter-end
-
-  @override
   void addCategory(Category _cate) {
     if(_cate.getSelectedChoice() == true) {
       this.cateList.add(_cate);
@@ -177,5 +103,4 @@ class Consumer extends Account {
       }
     }
   }
-
 }

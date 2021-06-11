@@ -65,7 +65,7 @@ class _LoginState extends State<Login> {
                     setState(() {
                       email = value;
                     });
-                    _acc.setEmail(email);
+                    _acc.email = email;
                     if(_acc.validEmail() == false) {
                       return _acc.errMsg;
                     }else {
@@ -104,7 +104,7 @@ class _LoginState extends State<Login> {
                     setState(() {
                       password = value;
                     });
-                    _acc.setPassword(password);
+                    _acc.password = password;
                     if(_acc.validPassword() == false) {
                       return _acc.errMsg;
                     }else {
