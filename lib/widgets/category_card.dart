@@ -10,7 +10,7 @@ class CategoryCard extends StatefulWidget {
 
   bool isSelected;
 
-  CategoryCard({this.cateList, this.isSelected});
+   CategoryCard({this.cateList, this.isSelected});
 
   @override
   _CategoryCardState createState() => _CategoryCardState();

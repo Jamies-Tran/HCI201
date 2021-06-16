@@ -6,19 +6,19 @@ import 'package:hci_201/service/serviceimpl.dart';
 
 class ChefFood {
 
-  String email;
-  int id;
+  String chefEmail;
+  int foodId;
   IService service = ServiceImpl();
 
   // constructor
-  ChefFood({this.email, this.id});
+  ChefFood({this.chefEmail, this.foodId});
 
   Food getFood() {
-    return service.getFoodByID(this.id);
+    return service.getFoodByID(this.foodId);
   }
 
   Chef getChef() {
-    return service.getChefByEmail(this.email);
+    return service.getChefByEmail(this.chefEmail);
   }
 
 }

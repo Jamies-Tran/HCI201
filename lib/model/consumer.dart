@@ -1,5 +1,6 @@
 import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/category.dart';
+import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/get_enum.dart';
 
 class Consumer extends Account {
@@ -12,6 +13,7 @@ class Consumer extends Account {
   Account_Type role;
   String avatar;
   List<Category> cateList = [];
+  List<Chef> chefFollowed = [];
   RegExp reg;
 
 
@@ -98,9 +100,23 @@ class Consumer extends Account {
     }else {
       if(this.cateList.contains(_cate)) {
         this.cateList.remove(_cate);
-        print('has remove ${_cate.getTitle()}');
+        print('has remove ${_cate.getTitle()} - ${this.cateList.remove(_cate)}');
         print('${this.cateList.length}');
       }
+    }
+  }
+
+  void addOrRemoveFollowChef(Chef _chef, bool isAdd) {
+    if(isAdd == true) {
+      this.chefFollowed.add(_chef);
+      print("add");
+      print("size : ${this.chefFollowed.length}");
+    }else {
+      if(this.chefFollowed.contains(_chef)) {
+        this.chefFollowed.remove(_chef);
+      }
+      print("remove - ${_chef.name}");
+      print("size : ${this.chefFollowed.length}");
     }
   }
 }

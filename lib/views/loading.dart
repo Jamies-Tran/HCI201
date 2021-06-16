@@ -43,7 +43,7 @@ class _LoadingState extends State<Loading> {
       service.regChangeScreen(_acc, context);
     }
     return Container(
-      child: SpinKitPumpingHeart(
+      child: SpinKitSquareCircle(
         color: Colors.white,
       ),
       color: Colors.red,

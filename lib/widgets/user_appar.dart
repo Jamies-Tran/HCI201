@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget myUserAppBar(String title, BuildContext context) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(90),
+    preferredSize: Size.fromHeight(80),
     child: AppBar(
       leadingWidth: 70,
       leading: CircleAvatar(
@@ -14,7 +14,7 @@ Widget myUserAppBar(String title, BuildContext context) {
         style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.bold,
-            fontFamily: 'flower',
+            fontFamily: 'robo',
             letterSpacing: 2.0,
             color: Colors.white
         ),

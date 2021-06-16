@@ -16,6 +16,7 @@ class Chef extends Account{
   List<ChefFood> chefFood = [];
   double star;
   int price;
+  bool isThereFollower = false;
   RegExp reg;
 
   Chef({this.email, this.password, this.name, this.phone, this.addr, this.star = 0, this.avatar, this.role, this.price}) :
@@ -101,4 +102,11 @@ class Chef extends Account{
 
   // valid-data-end
 
+  bool getIsFollowed() {
+    return this.isThereFollower;
+  }
+
+  void setIsFollowed(bool isFollowed) {
+    this.isThereFollower = isFollowed;
+  }
 }
