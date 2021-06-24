@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hci_201/model/account.dart';
+import 'package:hci_201/model/category.dart';
 import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/consumer.dart';
@@ -32,4 +33,9 @@ abstract class IService {
   Chef getChefByEmail(String email);
 
   Consumer getConsumerByEmail(String email);
+
+  List<Category> cateGoryList();
+
+  Category getCategoryById(String id);
+
 }

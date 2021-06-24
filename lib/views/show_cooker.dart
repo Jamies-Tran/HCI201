@@ -3,6 +3,7 @@ import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/consumer.dart';
 import 'package:hci_201/model/food.dart';
+import 'package:hci_201/model/get_enum.dart';
 import 'package:hci_201/service/iservice.dart';
 import 'package:hci_201/service/serviceimpl.dart';
 import 'package:hci_201/widgets/appbar.dart';
@@ -38,7 +39,7 @@ class _ShowCookerState extends State<ShowCooker> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width * 1.6,
-          child: ChefCard(scrollDicrect: Axis.vertical, chefList: _chefList, con: con),
+          child: ChefCard(scrollDicrect: Axis.vertical, chefList: _chefList, con: con, food: food, widType: Wid_Type.BOOKING),
         ),
       ),
     );

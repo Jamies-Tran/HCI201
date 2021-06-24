@@ -45,7 +45,7 @@ class _CategoryCardState extends State<CategoryCard> {
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 image: DecorationImage(
-                    image: AssetImage("${widget.cateList[index].getImage()}"),
+                    image: AssetImage("${widget.cateList[index].image}"),
                     fit: BoxFit.fitWidth),
               ),
             ),
@@ -53,11 +53,11 @@ class _CategoryCardState extends State<CategoryCard> {
               setState(() {
                 widget.isSelected = !widget.isSelected;
               });
-              widget.cateList[index].setSelectedChoice(widget.isSelected);
+              widget.cateList[index].isSelected = widget.isSelected;
               _acc.addCategory(widget.cateList[index]);
             },
             title: Text(
-              widget.cateList[index].getTitle(),
+              widget.cateList[index].title,
               style: TextStyle(
                   fontSize: 20,
                   fontFamily: 'koho',

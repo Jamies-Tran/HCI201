@@ -12,6 +12,13 @@ class ChefFoodCard extends StatelessWidget {
 
   ChefFoodCard({this.chefFoodList});
 
+  void onTapFunc(BuildContext context, int index) {
+    Navigator.pushNamed(context, '/booking', arguments: {
+      'food' : chefFoodList[index].foodId,
+      'chef' : chefFoodList[index].chefEmail
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +31,9 @@ class ChefFoodCard extends StatelessWidget {
           return Row(
             children: [
               GestureDetector(
-                onTap: (){},
+                onTap: (){
+                  onTapFunc(context, index);
+                },
                 child: Container(
                   child: Column(
                     children: [
@@ -42,7 +51,7 @@ class ChefFoodCard extends StatelessWidget {
                       SizedBox(height: 10),
                       Container(
                         child: Text(
-                          "${_getFood(chefFoodList[index].foodId).name}",
+                          "${_getFood(chefFoodList[index].foodId).title}",
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

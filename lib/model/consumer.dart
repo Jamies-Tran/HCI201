@@ -81,7 +81,7 @@ class Consumer extends Account {
 
   @override
   bool validAddr() {
-    reg = RegExp(r"^([a-zA-Z]+)([0-9]+)$",
+    reg = RegExp(r"^([a-z A-Z0-9]+)$",
         multiLine: false, caseSensitive: false);
     if (!reg.hasMatch(addr) || addr.isEmpty || addr == "") {
       errMsg = "Invalid address";
@@ -93,14 +93,14 @@ class Consumer extends Account {
   // implement super class method (valid data) - end
 
   void addCategory(Category _cate) {
-    if(_cate.getSelectedChoice() == true) {
+    if(_cate.isSelected == true) {
       this.cateList.add(_cate);
-      print('has added ${_cate.getTitle()}');
+      print('has added ${_cate.title}');
       print('${this.cateList.length}');
     }else {
       if(this.cateList.contains(_cate)) {
         this.cateList.remove(_cate);
-        print('has remove ${_cate.getTitle()} - ${this.cateList.remove(_cate)}');
+        print('has remove ${_cate.title} - ${this.cateList.remove(_cate)}');
         print('${this.cateList.length}');
       }
     }

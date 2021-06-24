@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hci_201/model/account.dart';
-import 'package:hci_201/model/chef.dart';
-import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/consumer.dart';
 import 'package:hci_201/model/food.dart';
 import 'package:hci_201/service/iservice.dart';
@@ -31,55 +28,53 @@ class _FoodCardState extends State<FoodCard> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        scrollDirection: Axis.horizontal,
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.75,
+      height: MediaQuery.of(context).size.height * 0.5,
+      child: ListView.builder(
         itemCount: widget.foodList.length,
-        itemBuilder: (context, index) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index){
+          return Row(
             children: [
               GestureDetector(
                 onTap: (){
                   onTapFunc(index);
                 },
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(14, 20, 10, 0),
-                  width: MediaQuery.of(context).size.width * 0.47,
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    image: DecorationImage(
-                      image: AssetImage("${widget.foodList[index].avatar}"),
-                      fit: BoxFit.cover
-                    )
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 20),
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.15,
-                child: Card(
-                  child: ListTile(
-                    title: Text(
-                      '${widget.foodList[index].name}',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'koho',
-                        letterSpacing: 2.0
+                  child: Column(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.5,
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("${widget.foodList[index].avatar}"),
+                                fit: BoxFit.cover
+                            ),
+                            borderRadius: BorderRadius.circular(15)
+                        ),
                       ),
-                    ),
-                    onTap: (){
-                      onTapFunc(index);
-                    },
+                      SizedBox(height: 10),
+                      Container(
+                        child: Text(
+                          "${widget.foodList[index].title}",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'robo'
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              SizedBox(width: 30),
+              SizedBox(width: 20)
             ],
           );
-        }
+        },
+      ),
     );
   }
 }

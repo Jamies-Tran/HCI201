@@ -6,6 +6,7 @@ import 'package:hci_201/model/food.dart';
 import 'package:hci_201/service/iservice.dart';
 import 'package:hci_201/service/serviceimpl.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:hci_201/widgets/appbar.dart';
 import 'package:hci_201/widgets/chef_food_card.dart';
 import 'package:hci_201/widgets/follower.dart';
 
@@ -26,26 +27,16 @@ class _ChefProfileState extends State<ChefProfile> {
 
   @override
   Widget build(BuildContext context) {
-
     Map data = ModalRoute.of(context).settings.arguments;
     email = data['chef'];
     Consumer _con = data["acc"];
+
     service = ServiceImpl();
     Chef _chef =  service.getChefByEmail(email);
     _chefFoodList.addAll(service.getChefFood().where((element) => element.chefEmail == _chef.email));
     Food _food(int id) => service.getFoodByID(id);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            "Chef's information",
-            style: TextStyle(
-              fontSize: 20,
-              fontFamily: 'robo',
-              letterSpacing: 2.0
-            ),
-        ),
-        backgroundColor: Colors.red,
-      ),
+      appBar: MyAppBar(context, "Chef's information"),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -86,6 +77,29 @@ class _ChefProfileState extends State<ChefProfile> {
                 minWidth: MediaQuery.of(context).size.width,
                 height: 50,
                 child: Follower(con: _con, chefFollower: _chef)
+              ),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center ,
+                children: [
+                  Text(
+                    "${_chef.price}VND - ",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'robo',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.red
+                    ),
+                  ),
+                  Text(
+                    "per hour",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'robo',
+                        color: Colors.black
+                    ),
+                  )
+                ],
               ),
               SizedBox(height: 30),
               Divider(

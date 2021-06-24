@@ -26,7 +26,6 @@ class _MainScreenState extends State<MainScreen> {
     Consumer _acc = data['acc'];
     widList = [
       Explore(con: _acc),
-      Search(),
       Booking(),
       Chat(),
       Profile()
@@ -48,16 +47,11 @@ class _MainScreenState extends State<MainScreen> {
               backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: "search",
-              backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
               icon: Icon(
-                Icons.add,
+                Icons.add_shopping_cart,
                 size: 15,
               ),
-              label: "story",
+              label: "booked",
               backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
@@ -66,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
             backgroundColor: Colors.red
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.info_rounded),
+              icon: Icon(Icons.account_box_outlined),
               label: "account",
               backgroundColor: Colors.red,
           ),

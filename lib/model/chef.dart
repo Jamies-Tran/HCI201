@@ -16,10 +16,11 @@ class Chef extends Account{
   List<ChefFood> chefFood = [];
   double star;
   int price;
+  double distance;
   bool isThereFollower = false;
   RegExp reg;
 
-  Chef({this.email, this.password, this.name, this.phone, this.addr, this.star = 0, this.avatar, this.role, this.price}) :
+  Chef({this.email, this.password, this.name, this.phone, this.addr, this.star = 0, this.avatar, this.role, this.price, this.distance}) :
         super(email: email, password: password, name: name, phone: phone, addr: addr, role: role);
 
   // implement super class method (valid datata) - start

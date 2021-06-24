@@ -17,8 +17,8 @@ class _LoginState extends State<Login> {
 
   TextEditingController _email;
   TextEditingController _password;
-  String email;
-  String password;
+  String email = '';
+  String password = '';
   int flag = 0;
   Account _acc = Consumer();
   GlobalKey<FormState> _key = GlobalKey();
@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(context, ""),
+      appBar: MyAppBar(context, "Log in"),
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -124,6 +124,7 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 30),
                   TextFormField(
                     controller: _password,
+                    obscureText: true,
                     validator: (String value) {
                       setState(() {
                         password = value;
@@ -142,6 +143,7 @@ class _LoginState extends State<Login> {
                             fontFamily: 'koho',
                             letterSpacing: 2.0
                         ),
+
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(width: 2, color: Colors.pinkAccent),
                             borderRadius: BorderRadius.circular(15)
@@ -166,7 +168,11 @@ class _LoginState extends State<Login> {
                   Container(
                     padding: EdgeInsets.all(0),
                     child: FlatButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.pushNamed(context, '/forgot_password', arguments: {
+                            'email' : email
+                          });
+                        },
                         child: Text(
                             "Forgot password?",
                           style: TextStyle(
