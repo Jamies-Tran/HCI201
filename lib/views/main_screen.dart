@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hci_201/model/account.dart';
 import 'package:hci_201/model/consumer.dart';
 import 'package:hci_201/widgets/account_profile.dart';
-import 'package:hci_201/widgets/booking.dart';
 import 'package:hci_201/widgets/chat.dart';
 import 'package:hci_201/widgets/explore.dart';
 import 'package:hci_201/widgets/search.dart';
@@ -26,12 +25,16 @@ class _MainScreenState extends State<MainScreen> {
     Consumer _acc = data['acc'];
     widList = [
       Explore(con: _acc),
-      Booking(),
-      Chat(),
       Profile()
     ];
     return Scaffold(
       appBar: myUserAppBar("${_acc.name}", context),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.shopping_cart, size: 30),
+        backgroundColor: Colors.redAccent,
+        onPressed: (){},
+        heroTag: null,
+      ),
       body: widList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -43,25 +46,12 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "explore",
+              label: "Khám phá",
               backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add_shopping_cart,
-                size: 15,
-              ),
-              label: "booked",
-              backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble),
-            label: "Chat",
-            backgroundColor: Colors.red
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.account_box_outlined),
-              label: "account",
+              label: "Tài khoản",
               backgroundColor: Colors.red,
           ),
 

@@ -5,6 +5,7 @@ import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/consumer.dart';
 import 'package:hci_201/model/food.dart';
+import 'package:hci_201/model/ingredient.dart';
 
 abstract class IService {
 
@@ -37,5 +38,7 @@ abstract class IService {
   List<Category> cateGoryList();
 
   Category getCategoryById(String id);
+
+  List<Ingredient> getIngredientList();
 
 }

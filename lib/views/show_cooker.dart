@@ -20,10 +20,11 @@ class _ShowCookerState extends State<ShowCooker> {
 
   @override
   Widget build(BuildContext context) {
+    IService service = ServiceImpl();
     Map data = ModalRoute.of(context).settings.arguments;
     Food food = data['food'];
-    Consumer con = data['acc'];
-    IService service = ServiceImpl();
+    String conEmail = data['conEmail'];
+    Consumer con = service.getConsumerByEmail(conEmail);
     List<Chef> _chefList = [];
     _chefFoodList.addAll(service.getChefFood().where((element) => element.foodId == food.id));
     _chefFoodList.sort((a,b) => service.getChefByEmail(a.chefEmail).star.compareTo(service.getChefByEmail(b.chefEmail).star));
@@ -32,15 +33,21 @@ class _ShowCookerState extends State<ShowCooker> {
       _chefList.add(service.getChefByEmail(element.chefEmail));
     });
 
+
     return Scaffold(
       appBar: MyAppBar(context, "All chef relate to this food"),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width * 1.6,
-          child: ChefCard(scrollDicrect: Axis.vertical, chefList: _chefList, con: con, food: food, widType: Wid_Type.BOOKING),
-        ),
+      // body: SingleChildScrollView(
+      //   scrollDirection: Axis.vertical,
+      //   child: Container(
+      //     height: MediaQuery.of(context).size.height,
+      //     width: MediaQuery.of(context).size.width * 1.6,
+      //     child: ChefCard(scrollDicrect: Axis.vertical, chefList: _chefList, con: con, food: food, widType: Wid_Type.BOOKING),
+      //   ),
+      // ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width * 1.6,
+        child: ChefCard(scrollDicrect: Axis.vertical, chefList: _chefList, con: con, food: food, widType: Wid_Type.BOOKING),
       ),
     );
   }

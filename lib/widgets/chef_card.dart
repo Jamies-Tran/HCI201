@@ -39,11 +39,11 @@ class _ChefCardState extends State<ChefCard> {
         'acc' : _con
       });
     }else if(widget.widType == Wid_Type.BOOKING){
-      Navigator.pushNamed(context, "/booking", arguments: {
+      Navigator.pushNamed(context, "/food_info", arguments: {
         'widget' : widget.widType,
         'chef' : widget.chefList[index].email,
         'food' : widget.food.id,
-        'acc' : _con
+        'conEmail' : _con.email
       });
     }
   }
@@ -93,11 +93,12 @@ class _ChefCardState extends State<ChefCard> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              margin: EdgeInsets.fromLTRB(15, 15, 0, 15),
+                              margin: EdgeInsets.fromLTRB(10, 10, 0, 0),
                               child: Text(
                                 "${widget.chefList[index].name}",
                                 style: TextStyle(
@@ -108,38 +109,41 @@ class _ChefCardState extends State<ChefCard> {
                                 ),
                               ),
                             ),
-                            RatingBar(
-                                ignoreGestures: true,
-                                allowHalfRating: true,
-                                itemCount: 5,
-                                direction: Axis.horizontal,
-                                initialRating: widget.chefList[index].star,
-                                ratingWidget: RatingWidget(
-                                    empty: Icon(Icons.star_border_outlined, color: Colors.amber, size: 20),
-                                    half: Icon(Icons.star_half, color: Colors.amber, size: 20),
-                                    full: Icon(Icons.star, color: Colors.amber, size: 20)
-                                )
-                            ),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              child: Text(
+                                  "${widget.chefList[index].addr} - ${widget.chefList[index].distance}m",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontFamily: 'robo',
+                                    color: Colors.grey[500]
+                                  ),
+                              ),
+                            )
                           ],
                         ),
                         Container(
-                          margin: EdgeInsets.fromLTRB(15, 10, 0, 15),
-                          child: Text(
-                            "Location: ${widget.chefList[index].addr} - ${widget.chefList[index].distance}km",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'robo',
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
-                            ),
+                          margin: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                          child: RatingBar(
+                              ignoreGestures: true,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              direction: Axis.horizontal,
+                              initialRating: widget.chefList[index].star,
+                              ratingWidget: RatingWidget(
+                                  empty: Icon(Icons.star_border_outlined, color: Colors.amber),
+                                  half: Icon(Icons.star_half, color: Colors.amber),
+                                  full: Icon(Icons.star, color: Colors.amber)
+                              ),
+                              itemSize: 25,
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.fromLTRB(15, 10, 0, 15),
+                          margin: EdgeInsets.fromLTRB(10, 20, 0, 0),
                           child: Row(
                             children: [
                               Text(
-                                "Price: ",
+                                "Phí bếp: ",
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontFamily: 'robo',
@@ -148,9 +152,9 @@ class _ChefCardState extends State<ChefCard> {
                                 ),
                               ),
                               Text(
-                                "${widget.chefList[index].price}VND",
+                                "${widget.chefList[index].price}.000 VND",
                                 style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 25,
                                     fontFamily: 'robo',
                                     fontWeight: FontWeight.bold,
                                     color: Colors.red

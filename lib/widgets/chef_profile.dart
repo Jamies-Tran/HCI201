@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/consumer.dart';
-import 'package:hci_201/model/food.dart';
+//import 'package:hci_201/model/food.dart';
 import 'package:hci_201/service/iservice.dart';
 import 'package:hci_201/service/serviceimpl.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -34,9 +34,9 @@ class _ChefProfileState extends State<ChefProfile> {
     service = ServiceImpl();
     Chef _chef =  service.getChefByEmail(email);
     _chefFoodList.addAll(service.getChefFood().where((element) => element.chefEmail == _chef.email));
-    Food _food(int id) => service.getFoodByID(id);
+    //Food _food(int id) => service.getFoodByID(id);
     return Scaffold(
-      appBar: MyAppBar(context, "Chef's information"),
+      appBar: MyAppBar(context, "Thông tin bếp"),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -58,15 +58,15 @@ class _ChefProfileState extends State<ChefProfile> {
                   ratingWidget: RatingWidget(
                     full: Icon(
                         Icons.star,
-                        color: Colors.redAccent
+                        color: Colors.amber
                     ),
                     half: Icon(
                         Icons.star_half,
-                        color: Colors.redAccent
+                        color: Colors.amber
                     ),
                     empty: Icon(
                         Icons.star_border_outlined,
-                        color: Colors.redAccent
+                        color: Colors.amber
                     )
                   ),
                   onRatingUpdate: (_value) {},
@@ -83,22 +83,22 @@ class _ChefProfileState extends State<ChefProfile> {
                 mainAxisAlignment: MainAxisAlignment.center ,
                 children: [
                   Text(
-                    "${_chef.price}VND - ",
+                    "Phí bếp - ",
                     style: TextStyle(
-                      fontSize: 20,
+                        fontSize: 25,
+                        fontFamily: 'robo',
+                        color: Colors.blueGrey
+                    ),
+                  ),
+                  Text(
+                    "${_chef.price}.000VND",
+                    style: TextStyle(
+                      fontSize: 25,
                       fontFamily: 'robo',
                       fontWeight: FontWeight.bold,
                       color: Colors.red
                     ),
                   ),
-                  Text(
-                    "per hour",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'robo',
-                        color: Colors.black
-                    ),
-                  )
                 ],
               ),
               SizedBox(height: 30),
@@ -114,14 +114,7 @@ class _ChefProfileState extends State<ChefProfile> {
                   children: [
                     Row(
                       children: [
-                        Text(
-                          "Name: ",
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontFamily: 'robo',
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
+                        Icon(Icons.people, color: Colors.red),
                         SizedBox(width: 5),
                         Text(
                           "${_chef.name}",
@@ -136,14 +129,7 @@ class _ChefProfileState extends State<ChefProfile> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(
-                          "Email: ",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontFamily: 'robo',
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
+                        Icon(Icons.email, color: Colors.red),
                         SizedBox(width: 5),
                         Text(
                           "${_chef.email}",
@@ -158,14 +144,7 @@ class _ChefProfileState extends State<ChefProfile> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(
-                          "Phone: ",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontFamily: 'robo',
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
+                        Icon(Icons.phone, color: Colors.red),
                         SizedBox(width: 5),
                         Text(
                           "${_chef.phone}",
@@ -180,14 +159,7 @@ class _ChefProfileState extends State<ChefProfile> {
                     SizedBox(height: 30),
                     Row(
                       children: [
-                        Text(
-                          "Address: ",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontFamily: 'robo',
-                              fontWeight: FontWeight.bold
-                          ),
-                        ),
+                        Icon(Icons.location_pin, color: Colors.red),
                         SizedBox(width: 5),
                         Text(
                           "${_chef.addr}",
@@ -208,7 +180,7 @@ class _ChefProfileState extends State<ChefProfile> {
                 child: Column(
                   children: [
                     Text(
-                      "Food service",
+                      "Món ăn của bếp",
                       style: TextStyle(
                           fontSize: 35,
                           fontFamily: 'robo',
@@ -246,7 +218,7 @@ class _ChefProfileState extends State<ChefProfile> {
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.5,
                   width: MediaQuery.of(context).size.width * 1,
-                  child: ChefFoodCard(chefFoodList: _chefFoodList),
+                  child: ChefFoodCard(chefFoodList: _chefFoodList, conEmail: _con.email),
                 ),
               )
             ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget myUserAppBar(String title, BuildContext context) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(80),
+    preferredSize: Size.fromHeight(70),
     child: AppBar(
       leadingWidth: 70,
       leading: CircleAvatar(
@@ -20,6 +20,12 @@ Widget myUserAppBar(String title, BuildContext context) {
         ),
       ),
       backgroundColor: Colors.redAccent,
+      actions: [
+        IconButton(
+            icon: Icon(Icons.assignment_outlined, color: Colors.white, size: 40),
+            onPressed: () {}
+        )
+      ],
     ),
   );
 }

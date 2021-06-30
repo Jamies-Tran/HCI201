@@ -17,12 +17,12 @@ class Register2 extends StatefulWidget {
 class _Register2State extends State<Register2> {
 
   List<Category> cateList = [
-    Category(id: "cate01", title: "Breakfast and brunch", image: "assets/breakfast.jpg"),
-    Category(id: "cate02", title: "Easy weeknight meat", image: "assets/ezweek9.jpg"),
-    Category(id: "cate03", title: "Make-ahead lunches", image: "assets/lunches.jpg"),
-    Category(id: "cate04", title: "Healthy receipt", image: "assets/healthy.jpg"),
-    Category(id: "cate05", title: "Deserts", image: "assets/deserts.jpg"),
-    Category(id: "cate06", title: "Drinks", image: "assets/drinks.jpg"),
+    Category(id: "cate01", title: "Bữa sáng", image: "assets/breakfast.jpg"),
+    Category(id: "cate02", title: "Bữa tối", image: "assets/dinnner.jpg"),
+    Category(id: "cate03", title: "Bữa trưa", image: "assets/lunch.jpg"),
+    Category(id: "cate04", title: "Sức khỏe", image: "assets/healthy.jpg"),
+    Category(id: "cate05", title: "Tráng miệng", image: "assets/desert.png"),
+    Category(id: "cate06", title: "Đồ uống", image: "assets/drink.jpg"),
   ];
 
 

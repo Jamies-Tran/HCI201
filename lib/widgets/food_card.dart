@@ -19,10 +19,14 @@ class _FoodCardState extends State<FoodCard> {
 
   IService service = ServiceImpl();
 
+  String name;
+
+  Consumer _con2;
+
   void onTapFunc(int index) {
     Navigator.pushNamed(context, '/show_cooker', arguments: {
       'food' : widget.foodList[index],
-      'acc' : widget.con
+      'conEmail' : widget.con.email
     });
   }
 

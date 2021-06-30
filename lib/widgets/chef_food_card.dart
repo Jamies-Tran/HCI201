@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hci_201/model/chef_food.dart';
+import 'package:hci_201/model/consumer.dart';
 import 'package:hci_201/model/food.dart';
 import 'package:hci_201/service/iservice.dart';
 import 'package:hci_201/service/serviceimpl.dart';
@@ -9,13 +10,16 @@ class ChefFoodCard extends StatelessWidget {
   List<ChefFood> chefFoodList = [];
   IService service = ServiceImpl();
   Food _getFood(int id) => service.getFoodByID(id);
+  String conEmail;
 
-  ChefFoodCard({this.chefFoodList});
+  ChefFoodCard({this.chefFoodList, this.conEmail});
+
 
   void onTapFunc(BuildContext context, int index) {
-    Navigator.pushNamed(context, '/booking', arguments: {
+    Navigator.pushNamed(context, '/food_info', arguments: {
       'food' : chefFoodList[index].foodId,
-      'chef' : chefFoodList[index].chefEmail
+      'chef' : chefFoodList[index].chefEmail,
+      'conEmail' : conEmail
     });
   }
 

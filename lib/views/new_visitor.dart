@@ -25,7 +25,8 @@ class _VisitorState extends State<Visitor> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ButtonTheme(
-                minWidth: 170,
+                //minWidth: 170,
+                minWidth: MediaQuery.of(context).size.width * 0.35,
                 height: 50,
                 child: RaisedButton(
                   onPressed: () {
@@ -45,7 +46,8 @@ class _VisitorState extends State<Visitor> {
               ),
               SizedBox(width: 50,),
               ButtonTheme(
-                  minWidth: 170,
+                  //minWidth: 170,
+                  minWidth: MediaQuery.of(context).size.width * 0.35,
                   height: 50,
                   buttonColor: Colors.red,
                   child: RaisedButton(

@@ -71,7 +71,7 @@ class _ExploreState extends State<Explore> {
                     borderSide: BorderSide(width: 3, color: Colors.red),
                     borderRadius: BorderRadius.circular(20)
                   )
-                ), 
+                ),
                 onTap: () {
                   //showSearch(context: context, delegate: SearchService());
                 },
@@ -79,10 +79,11 @@ class _ExploreState extends State<Explore> {
             ),
             SizedBox(height: 30),
             Center(
-                child: Column(
+                child: Row(
                   children: [
+                    Icon(Icons.category, size: 35, color: Colors.redAccent),
                     Text(
-                        "Category",
+                        " - Các loại món ăn",
                         style: TextStyle(
                             fontSize: 35,
                             fontFamily: 'koho',
@@ -91,31 +92,21 @@ class _ExploreState extends State<Explore> {
                             color: Colors.redAccent
                         )
                     ),
-                    Container(
-                        width: 150,
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        child: Divider(
-                            color: Colors.redAccent,
-                            thickness: 2.0,
-                            height: 50
-                        )
-                    ),
-                    Icon(Icons.category, size: 35, color: Colors.redAccent,)
                   ],
                 )
             ),
             SizedBox(height: 5),
             Container(
               width: MediaQuery.of(context).size.width * 1.0,
-              height: MediaQuery.of(context).size.height * 2.0,
-              child:  Category_View(cateList: _cateList),
+              height: MediaQuery.of(context).size.height * 0.35,
+              child:  Category_View(cateList: _cateList, conEmail: widget.con.email),
             ),
-            SizedBox(height: 30),
             Center(
-              child: Column(
+              child: Row(
                 children: [
+                  Icon(Icons.map, size: 35, color: Colors.redAccent),
                   Text(
-                      "Chef near by",
+                      " - Đầu bếp gần bạn",
                       style: TextStyle(
                           fontSize: 35,
                           fontFamily: 'koho',
@@ -124,31 +115,21 @@ class _ExploreState extends State<Explore> {
                           color: Colors.redAccent
                       )
                   ),
-                  Container(
-                      width: 150,
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: Divider(
-                          color: Colors.redAccent,
-                          thickness: 2.0,
-                          height: 50
-                      )
-                  ),
-                  Icon(Icons.map, size: 35, color: Colors.redAccent,)
                 ],
               )
             ),
             SizedBox(height: 5),
             Container(
               // day la height cua container chua container cua cac chefcard
-              height: MediaQuery.of(context).size.height * 0.65,
+              height: MediaQuery.of(context).size.height * 0.6,
               child: ChefCard(chefList: service.getChefList(), con: widget.con, scrollDicrect: Axis.horizontal, widType: Wid_Type.PROFILE_DISTANCE),
             ),
-            SizedBox(height: 10),
             Center(
-                child: Column(
+                child: Row(
                   children: [
+                    Icon(Icons.star, size: 35, color: Colors.redAccent),
                     Text(
-                        "Chef top rated star",
+                        " - Bảng xếp hạng",
                         style: TextStyle(
                             fontSize: 35,
                             fontFamily: 'koho',
@@ -157,31 +138,22 @@ class _ExploreState extends State<Explore> {
                             color: Colors.redAccent
                         )
                     ),
-                    Container(
-                        width: 150,
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        child: Divider(
-                            color: Colors.redAccent,
-                            thickness: 2.0,
-                            height: 50
-                        )
-                    ),
-                    Icon(Icons.star, size: 35, color: Colors.redAccent,)
                   ],
                 )
             ),
             SizedBox(height: 5),
             Container(
               // day la height cua container chua container cua cac chefcard
-              height: MediaQuery.of(context).size.height * 0.65,
+              height: MediaQuery.of(context).size.height * 0.6,
               child: ChefCard(chefList: service.getChefList(), con: widget.con, scrollDicrect: Axis.horizontal, widType: Wid_Type.PROFILE_STAR),
             ),
             SizedBox(height: 10),
             Center(
-                child: Column(
+                child: Row(
                   children: [
+                    Icon(Icons.fastfood, size: 35, color: Colors.redAccent),
                     Text(
-                        "Best sale",
+                        " - Ưu đãi",
                         style: TextStyle(
                             fontSize: 35,
                             fontFamily: 'koho',
@@ -190,16 +162,6 @@ class _ExploreState extends State<Explore> {
                             color: Colors.redAccent
                         )
                     ),
-                    Container(
-                        width: 150,
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        child: Divider(
-                            color: Colors.redAccent,
-                            thickness: 2.0,
-                            height: 50
-                        )
-                    ),
-                    Icon(Icons.fastfood, size: 35, color: Colors.redAccent)
                   ],
                 )
             ),
@@ -208,7 +170,7 @@ class _ExploreState extends State<Explore> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.65,
               child: FoodCard(foodList: service.getFoodList(), con: widget.con),
-            )
+            ),
             // SingleChildScrollView(
             //   scrollDirection: Axis.horizontal,
             //   child: Container(

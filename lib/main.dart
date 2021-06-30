@@ -4,6 +4,7 @@ import 'package:hci_201/views/booking.dart';
 import 'package:hci_201/views/change_password.dart';
 import 'package:hci_201/views/chef_screen.dart';
 import 'package:hci_201/views/err.dart';
+import 'package:hci_201/views/food_infor.dart';
 import 'package:hci_201/views/forgot_password.dart';
 import 'package:hci_201/views/loading.dart';
 import 'package:hci_201/views/login.dart';
@@ -14,6 +15,7 @@ import 'package:hci_201/views/food_category.dart';
 import 'package:hci_201/views/show_cooker.dart';
 import 'package:hci_201/views/show_food.dart';
 import 'package:hci_201/widgets/chef_profile.dart';
+import 'package:hci_201/widgets/quick_review.dart';
 import 'package:hci_201/widgets/search.dart';
 
 void main() => runApp(MaterialApp(
@@ -32,6 +34,8 @@ void main() => runApp(MaterialApp(
     '/change_password' : (context) => ChangePassword(),
     '/show_food' : (context) => ShowFood(),
     '/booking' : (context) => Booking(),
+    '/food_info' : (context) => FoodInformation(),
+    '/quick_review' : (context) => QuickReview(),
     '/err' : (context) => Error()
   },
 ));
