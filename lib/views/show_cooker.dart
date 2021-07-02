@@ -35,7 +35,7 @@ class _ShowCookerState extends State<ShowCooker> {
 
 
     return Scaffold(
-      appBar: MyAppBar(context, "All chef relate to this food"),
+      appBar: MyAppBar(context, "Các bếp nấu món này"),
       // body: SingleChildScrollView(
       //   scrollDirection: Axis.vertical,
       //   child: Container(

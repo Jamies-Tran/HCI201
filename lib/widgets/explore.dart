@@ -153,9 +153,9 @@ class _ExploreState extends State<Explore> {
                   children: [
                     Icon(Icons.fastfood, size: 35, color: Colors.redAccent),
                     Text(
-                        " - Ưu đãi",
+                        " - Món ngon trong tuần",
                         style: TextStyle(
-                            fontSize: 35,
+                            fontSize: 25,
                             fontFamily: 'koho',
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1.0,

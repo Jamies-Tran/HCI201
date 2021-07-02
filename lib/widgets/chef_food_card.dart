@@ -51,6 +51,9 @@ class ChefFoodCard extends StatelessWidget {
                             ),
                             borderRadius: BorderRadius.circular(15)
                         ),
+                        child: Container(
+
+                        ),
                       ),
                       SizedBox(height: 10),
                       Container(

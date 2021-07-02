@@ -1,8 +1,12 @@
 // ToDo: chef profile
 import 'package:flutter/material.dart';
+import 'package:hci_201/model/consumer.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key key}) : super(key: key);
+
+  Consumer con;
+
+  Profile({this.con})
 
   @override
   Widget build(BuildContext context) {

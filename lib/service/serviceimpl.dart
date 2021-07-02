@@ -132,7 +132,9 @@ class ServiceImpl implements IService {
        avatar: "assets/chef2.jpg",
        star: 4.5,
        price: 50,
-       distance: 5.0
+       distance: 5.0,
+       noWorkingDayFrom: DateTime.monday,
+       noWorkingDayTo: DateTime.saturday
      ),
      Chef(email: "tranquangminh@gmail.com", name: "Minh Tran", password: "minh123",
          addr: "46 Cong Hoa, phuong 4, quan Tan Binh",
@@ -141,7 +143,9 @@ class ServiceImpl implements IService {
          avatar: "assets/chef1.jpg",
          star: 5,
          price: 45,
-         distance: 4.5
+         distance: 4.5,
+         noWorkingDayFrom: DateTime.tuesday,
+         noWorkingDayTo: DateTime.sunday
      ),
      Chef(email: "phamnguyentrunghieu@gmail.com", name: "Hieu Pham", password: "minh123",
          addr: "56 Su Van Hanh, phuong 10, quan 10",
@@ -150,7 +154,9 @@ class ServiceImpl implements IService {
          avatar: "assets/chef3.jpg",
          star: 4.0,
          price: 60,
-         distance: 4.0
+         distance: 4.0,
+         noWorkingDayFrom: DateTime.wednesday,
+         noWorkingDayTo: DateTime.saturday
      ),
      Chef(email: "nguyenngocphieu@gmail.com", name: "Phieu Nguyen", password: "minh123",
          addr: "49 Nguyen Thi Minh Khai, phuong 2, quan 3",
@@ -159,7 +165,9 @@ class ServiceImpl implements IService {
          avatar: "assets/chef4.jpg",
          star: 3.5,
          price: 90,
-         distance: 3.5
+         distance: 3.5,
+         noWorkingDayFrom: DateTime.monday,
+         noWorkingDayTo: DateTime.thursday
      ),
      Chef(email: "phamngocnhan@gmail.com", name: "Nhan Pham", password: "minh123",
          addr: "43 Phan Van Tri, phuong 2, quan 5",
@@ -168,7 +176,9 @@ class ServiceImpl implements IService {
          avatar: "assets/chef5.jpg",
          star: 3.0,
          price: 65,
-         distance: 6.0
+         distance: 6.0,
+         noWorkingDayFrom: DateTime.monday,
+         noWorkingDayTo: DateTime.sunday
      ),
    ];
   }

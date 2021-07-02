@@ -25,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
     Consumer _acc = data['acc'];
     widList = [
       Explore(con: _acc),
-      Profile()
+      Profile(con: _acc)
     ];
     return Scaffold(
       appBar: myUserAppBar("${_acc.name}", context),

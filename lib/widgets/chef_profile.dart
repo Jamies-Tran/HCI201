@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hci_201/model/chef.dart';
 import 'package:hci_201/model/chef_food.dart';
 import 'package:hci_201/model/consumer.dart';
+import 'package:hci_201/model/get_enum.dart';
 //import 'package:hci_201/model/food.dart';
 import 'package:hci_201/service/iservice.dart';
 import 'package:hci_201/service/serviceimpl.dart';
@@ -24,6 +25,23 @@ class _ChefProfileState extends State<ChefProfile> {
   List<ChefFood> _chefFoodList = [];
   bool isFollowed = false;
 
+  String getDayName(Day_List _day) {
+    if(_day == Day_List.T2) {
+      return "Thứ 2";
+    }else if(_day == Day_List.T3) {
+      return "Thứ 3";
+    }else if(_day == Day_List.T4) {
+      return "Thứ 4";
+    }else if(_day == Day_List.T5) {
+      return "Thứ 5";
+    }else if(_day == Day_List.T6) {
+      return "Thứ 6";
+    }else if(_day == Day_List.T7) {
+      return "Thứ 7";
+    }else {
+      return "Chủ nhật";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,6 +183,21 @@ class _ChefProfileState extends State<ChefProfile> {
                           "${_chef.addr}",
                           style: TextStyle(
                               fontSize: 25,
+                              fontFamily: 'robo',
+                              letterSpacing: 1.0
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 30),
+                    Row(
+                      children: [
+                        Icon(Icons.timer, color: Colors.red),
+                        SizedBox(width: 5),
+                        Text(
+                          "Từ ${getDayName(Day_List.values[_chef.noWorkingDayFrom])} đến ${getDayName(Day_List.values[_chef.noWorkingDayTo])}",
+                          style: TextStyle(
+                              fontSize: 20,
                               fontFamily: 'robo',
                               letterSpacing: 1.0
                           ),
