@@ -6,15 +6,10 @@ class Profile extends StatelessWidget {
 
   Consumer con;
 
-  Profile({this.con})
+  Profile({this.con});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Profile view"),
-      ),
-      color: Colors.grey[400],
-    );
+    return Container();
   }
 }
